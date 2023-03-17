@@ -1,0 +1,601 @@
+wandb_version: 1
+
+_name_or_path:
+  desc: null
+  value: /workspace/llama/llama-7b
+_wandb:
+  desc: null
+  value:
+    cli_version: 0.14.0
+    framework: huggingface
+    huggingface_version: 4.28.0.dev0
+    is_jupyter_run: false
+    is_kaggle_kernel: false
+    m:
+    - 1: train/global_step
+      6:
+      - 3
+    - 1: train/loss
+      5: 1
+      6:
+      - 1
+    - 1: train/learning_rate
+      5: 1
+      6:
+      - 1
+    - 1: train/epoch
+      5: 1
+      6:
+      - 1
+    - 1: train/train_runtime
+      5: 1
+      6:
+      - 1
+    - 1: train/train_samples_per_second
+      5: 1
+      6:
+      - 1
+    - 1: train/train_steps_per_second
+      5: 1
+      6:
+      - 1
+    - 1: train/total_flos
+      5: 1
+      6:
+      - 1
+    - 1: train/train_loss
+      5: 1
+      6:
+      - 1
+    python_version: 3.10.8
+    start_time: 1679053665.785579
+    t:
+      1:
+      - 1
+      - 11
+      - 49
+      - 55
+      2:
+      - 1
+      - 11
+      - 49
+      - 55
+      3:
+      - 7
+      - 23
+      4: 3.10.8
+      5: 0.14.0
+      6: 4.28.0.dev0
+      8:
+      - 5
+adafactor:
+  desc: null
+  value: false
+adam_beta1:
+  desc: null
+  value: 0.9
+adam_beta2:
+  desc: null
+  value: 0.999
+adam_epsilon:
+  desc: null
+  value: 1.0e-08
+add_cross_attention:
+  desc: null
+  value: false
+architectures:
+  desc: null
+  value:
+  - LlamaForCausalLM
+auto_find_batch_size:
+  desc: null
+  value: false
+bad_words_ids:
+  desc: null
+  value: null
+begin_suppress_tokens:
+  desc: null
+  value: null
+bf16:
+  desc: null
+  value: true
+bf16_full_eval:
+  desc: null
+  value: false
+bos_token_id:
+  desc: null
+  value: 1
+cache_dir:
+  desc: null
+  value: None
+chunk_size_feed_forward:
+  desc: null
+  value: 0
+cross_attention_hidden_size:
+  desc: null
+  value: null
+data_seed:
+  desc: null
+  value: None
+dataloader_drop_last:
+  desc: null
+  value: false
+dataloader_num_workers:
+  desc: null
+  value: 0
+dataloader_pin_memory:
+  desc: null
+  value: true
+ddp_bucket_cap_mb:
+  desc: null
+  value: None
+ddp_find_unused_parameters:
+  desc: null
+  value: None
+ddp_timeout:
+  desc: null
+  value: 1800
+debug:
+  desc: null
+  value: '[]'
+decoder_start_token_id:
+  desc: null
+  value: null
+deepspeed:
+  desc: null
+  value: None
+disable_tqdm:
+  desc: null
+  value: false
+diversity_penalty:
+  desc: null
+  value: 0.0
+do_eval:
+  desc: null
+  value: false
+do_predict:
+  desc: null
+  value: false
+do_sample:
+  desc: null
+  value: false
+do_train:
+  desc: null
+  value: false
+early_stopping:
+  desc: null
+  value: false
+encoder_no_repeat_ngram_size:
+  desc: null
+  value: 0
+eos_token_id:
+  desc: null
+  value: 2
+eval_accumulation_steps:
+  desc: null
+  value: None
+eval_batch_size:
+  desc: null
+  value: 4
+eval_delay:
+  desc: null
+  value: 0
+eval_steps:
+  desc: null
+  value: None
+evaluation_strategy:
+  desc: null
+  value: 'no'
+exponential_decay_length_penalty:
+  desc: null
+  value: null
+finetuning_task:
+  desc: null
+  value: null
+forced_bos_token_id:
+  desc: null
+  value: null
+forced_eos_token_id:
+  desc: null
+  value: null
+fp16:
+  desc: null
+  value: false
+fp16_backend:
+  desc: null
+  value: auto
+fp16_full_eval:
+  desc: null
+  value: false
+fp16_opt_level:
+  desc: null
+  value: O1
+fsdp:
+  desc: null
+  value: '[''full_shard'', ''auto_wrap'']'
+fsdp_config:
+  desc: null
+  value: '{''fsdp_min_num_params'': 0, ''fsdp_transformer_layer_cls_to_wrap'': [''LlamaDecoderLayer''],
+    ''xla'': False, ''xla_fsdp_grad_ckpt'': False}'
+fsdp_min_num_params:
+  desc: null
+  value: 0
+fsdp_transformer_layer_cls_to_wrap:
+  desc: null
+  value: LlamaDecoderLayer
+full_determinism:
+  desc: null
+  value: false
+gradient_accumulation_steps:
+  desc: null
+  value: 8
+gradient_checkpointing:
+  desc: null
+  value: false
+greater_is_better:
+  desc: null
+  value: None
+group_by_length:
+  desc: null
+  value: false
+half_precision_backend:
+  desc: null
+  value: cuda_amp
+hidden_act:
+  desc: null
+  value: silu
+hidden_size:
+  desc: null
+  value: 4096
+hub_model_id:
+  desc: null
+  value: None
+hub_private_repo:
+  desc: null
+  value: false
+hub_strategy:
+  desc: null
+  value: every_save
+hub_token:
+  desc: null
+  value: <HUB_TOKEN>
+id2label:
+  desc: null
+  value:
+    '0': LABEL_0
+    '1': LABEL_1
+ignore_data_skip:
+  desc: null
+  value: false
+include_inputs_for_metrics:
+  desc: null
+  value: false
+initializer_range:
+  desc: null
+  value: 0.02
+intermediate_size:
+  desc: null
+  value: 11008
+is_decoder:
+  desc: null
+  value: false
+is_encoder_decoder:
+  desc: null
+  value: false
+jit_mode_eval:
+  desc: null
+  value: false
+label2id:
+  desc: null
+  value:
+    LABEL_0: 0
+    LABEL_1: 1
+label_names:
+  desc: null
+  value: None
+label_smoothing_factor:
+  desc: null
+  value: 0.0
+learning_rate:
+  desc: null
+  value: 2.0e-05
+length_column_name:
+  desc: null
+  value: length
+length_penalty:
+  desc: null
+  value: 1.0
+load_best_model_at_end:
+  desc: null
+  value: false
+local_rank:
+  desc: null
+  value: 0
+log_level:
+  desc: null
+  value: passive
+log_level_replica:
+  desc: null
+  value: warning
+log_on_each_node:
+  desc: null
+  value: true
+logging_dir:
+  desc: null
+  value: ./KoAlpaca/runs/Mar17_11-41-36_2c0938b5daa5
+logging_first_step:
+  desc: null
+  value: false
+logging_nan_inf_filter:
+  desc: null
+  value: true
+logging_steps:
+  desc: null
+  value: 1
+logging_strategy:
+  desc: null
+  value: steps
+lr_scheduler_type:
+  desc: null
+  value: cosine
+max_grad_norm:
+  desc: null
+  value: 1.0
+max_length:
+  desc: null
+  value: 20
+max_sequence_length:
+  desc: null
+  value: 2048
+max_steps:
+  desc: null
+  value: -1
+metric_for_best_model:
+  desc: null
+  value: None
+min_length:
+  desc: null
+  value: 0
+model_max_length:
+  desc: null
+  value: 512
+model_type:
+  desc: null
+  value: llama
+mp_parameters:
+  desc: null
+  value: ''
+no_cuda:
+  desc: null
+  value: false
+no_repeat_ngram_size:
+  desc: null
+  value: 0
+num_attention_heads:
+  desc: null
+  value: 32
+num_beam_groups:
+  desc: null
+  value: 1
+num_beams:
+  desc: null
+  value: 1
+num_hidden_layers:
+  desc: null
+  value: 32
+num_return_sequences:
+  desc: null
+  value: 1
+num_train_epochs:
+  desc: null
+  value: 3.0
+optim:
+  desc: null
+  value: adamw_torch
+optim_args:
+  desc: null
+  value: None
+output_attentions:
+  desc: null
+  value: false
+output_dir:
+  desc: null
+  value: ./KoAlpaca
+output_hidden_states:
+  desc: null
+  value: false
+output_scores:
+  desc: null
+  value: false
+overwrite_output_dir:
+  desc: null
+  value: false
+pad_token_id:
+  desc: null
+  value: 0
+past_index:
+  desc: null
+  value: -1
+per_device_eval_batch_size:
+  desc: null
+  value: 4
+per_device_train_batch_size:
+  desc: null
+  value: 4
+per_gpu_eval_batch_size:
+  desc: null
+  value: None
+per_gpu_train_batch_size:
+  desc: null
+  value: None
+prediction_loss_only:
+  desc: null
+  value: false
+prefix:
+  desc: null
+  value: null
+problem_type:
+  desc: null
+  value: null
+pruned_heads:
+  desc: null
+  value: {}
+push_to_hub:
+  desc: null
+  value: false
+push_to_hub_model_id:
+  desc: null
+  value: None
+push_to_hub_organization:
+  desc: null
+  value: None
+push_to_hub_token:
+  desc: null
+  value: <PUSH_TO_HUB_TOKEN>
+ray_scope:
+  desc: null
+  value: last
+remove_invalid_values:
+  desc: null
+  value: false
+remove_unused_columns:
+  desc: null
+  value: true
+repetition_penalty:
+  desc: null
+  value: 1.0
+report_to:
+  desc: null
+  value: '[''wandb'']'
+resume_from_checkpoint:
+  desc: null
+  value: None
+return_dict:
+  desc: null
+  value: true
+return_dict_in_generate:
+  desc: null
+  value: false
+rms_norm_eps:
+  desc: null
+  value: 1.0e-06
+run_name:
+  desc: null
+  value: ./KoAlpaca
+save_on_each_node:
+  desc: null
+  value: false
+save_steps:
+  desc: null
+  value: 2000
+save_strategy:
+  desc: null
+  value: steps
+save_total_limit:
+  desc: null
+  value: 1
+seed:
+  desc: null
+  value: 42
+sep_token_id:
+  desc: null
+  value: null
+sharded_ddp:
+  desc: null
+  value: '[]'
+skip_memory_metrics:
+  desc: null
+  value: true
+suppress_tokens:
+  desc: null
+  value: null
+task_specific_params:
+  desc: null
+  value: null
+temperature:
+  desc: null
+  value: 1.0
+tf32:
+  desc: null
+  value: true
+tf_legacy_loss:
+  desc: null
+  value: false
+tie_encoder_decoder:
+  desc: null
+  value: false
+tie_word_embeddings:
+  desc: null
+  value: false
+tokenizer_class:
+  desc: null
+  value: null
+top_k:
+  desc: null
+  value: 50
+top_p:
+  desc: null
+  value: 1.0
+torch_compile:
+  desc: null
+  value: false
+torch_compile_backend:
+  desc: null
+  value: None
+torch_compile_mode:
+  desc: null
+  value: None
+torch_dtype:
+  desc: null
+  value: float16
+torchdynamo:
+  desc: null
+  value: None
+torchscript:
+  desc: null
+  value: false
+tpu_metrics_debug:
+  desc: null
+  value: false
+tpu_num_cores:
+  desc: null
+  value: None
+train_batch_size:
+  desc: null
+  value: 4
+transformers_version:
+  desc: null
+  value: 4.28.0.dev0
+typical_p:
+  desc: null
+  value: 1.0
+use_bfloat16:
+  desc: null
+  value: false
+use_cache:
+  desc: null
+  value: true
+use_ipex:
+  desc: null
+  value: false
+use_legacy_prediction_loop:
+  desc: null
+  value: false
+use_mps_device:
+  desc: null
+  value: false
+vocab_size:
+  desc: null
+  value: 32001
+warmup_ratio:
+  desc: null
+  value: 0.03
+warmup_steps:
+  desc: null
+  value: 0
+weight_decay:
+  desc: null
+  value: 0.0
+xpu_backend:
+  desc: null
+  value: None
