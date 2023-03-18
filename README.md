@@ -5,7 +5,7 @@
 
 # KoAlpaca: Korean Alpaca Model based on Stanford Alpaca (feat. LLAMA and Polyglot-ko)
 
-Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 진행한, 한국어 Alpaca 모델입니다.
+Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 진행한, 한국어 Alpaca 모델입니다. And [KoAlpaca.cpp](https://github.com/gyunggyung/KoAlpaca.cpp)
 
 ## 바로 써보기: Telegram Bot으로 만나보세요!
 
