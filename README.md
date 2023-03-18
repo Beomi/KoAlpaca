@@ -17,6 +17,11 @@ Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 �
 
 한국어 모델과 영한 모델 모두 변경해가며 체험하실 수 있습니다!
 
+<p align="center" width="100%">
+<img src="assets/telegram_example_1.png" alt="KoAlpaca Telegram Bot QR Code" style="width: 45%; max-width: 300px; display: inline-block; margin: auto;">
+<img src="assets/telegram_example_2.png" alt="KoAlpaca Telegram Bot QR Code" style="width: 45%; max-width: 300px; display: inline-block; margin: auto;">
+</p>
+
 > 📣 각 모델별 한 대의 GPU로 서빙되고 있어서, 생성에 시간이 걸릴 수 있습니다. 속도를 위해 생성 최대 토큰은 요청당 128토큰으로 제한되어있습니다.
 
 ## 완성된 모델: 한국어 모델(Polyglot-ko) & 영한 모델(LLAMA)
