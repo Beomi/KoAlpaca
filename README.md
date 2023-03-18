@@ -1,6 +1,6 @@
 
 <p align="center" width="100%">
-<img src="assets/KoAlpaca.png" alt="KoAlpaca icon" style="width: 50%; min-width: 300px; display: block; margin: auto;">
+<img src="assets/KoAlpaca.png" alt="KoAlpaca icon" style="max-width: 250px; display: block; margin: auto; border-radius: 50%;">
 </p>
 
 # KoAlpaca: Korean Alpaca Model based on Stanford Alpaca (feat. LLAMA and Polyglot-ko)
