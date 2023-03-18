@@ -1,9 +1,144 @@
 
 <p align="center" width="100%">
-<a href="https://crfm.stanford.edu/alpaca/" target="_blank"><img src="assets/logo.png" alt="Stanford-Alpaca" style="width: 50%; min-width: 300px; display: block; margin: auto;"></a>
+<img src="assets/KoAlpaca.png" alt="KoAlpaca icon" style="width: 50%; min-width: 300px; display: block; margin: auto;">
 </p>
 
-# Stanford Alpaca: An Instruction-following LLaMA Model 
+# KoAlpaca: Korean Alpaca Model based on Stanford Alpaca (feat. LLAMA and Polyglot-ko)
+
+Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 진행한, 한국어 Alpaca 모델입니다.
+
+## 바로 써보기: Telegram Bot으로 만나보세요!
+
+아래 QR코드를 찍거나, 혹은 [https://t.me/KoAlpacaBot](https://t.me/KoAlpacaBot)에서 만나보세요!
+
+<p align="center" width="100%">
+<img src="assets/koalpaca_telegram.jpg" alt="KoAlpaca Telegram Bot QR Code" style="width: 50%; min-width: 300px; display: block; margin: auto;">
+</p>
+
+한국어 모델과 영한 모델 모두 변경해가며 체험하실 수 있습니다!
+
+> 📣 각 모델별 한 대의 GPU로 서빙되고 있어서, 생성에 시간이 걸릴 수 있습니다. 속도를 위해 생성 최대 토큰은 요청당 128토큰으로 제한되어있습니다.
+
+## 완성된 모델: 한국어 모델(Polyglot-ko) & 영한 모델(LLAMA)
+
+KoAlpaca는 백본 모델로 두 가지 모델을 사용했습니다.
+
+1. Polyglot-ko 5.8B 기반 -> [https://huggingface.co/beomi/KoAlpaca-Polyglot](https://huggingface.co/beomi/KoAlpaca-Polyglot)
+2. Meta LLAMA 7B 기반 -> [https://huggingface.co/beomi/KoAlpaca](https://huggingface.co/beomi/KoAlpaca)
+
+Meta의 LLAMA 모델은 한국어 데이터셋을 충분히 학습하지 않아서, 실제 Inference를 돌려보았을 때 한국어 성능이 낮게 나오는 이슈가 있습니다.
+
+보다 한국어에 나은 퀄리티를 얻어보고자 Polyglot-ko 5.8B 모델을 백본으로 사용한 두 가지 모델을 학습시켰습니다.
+
+## 데이터셋 제작 방법
+
+데이터셋은 기본적으로 [Stanford Alpaca에서 제공한 5만2천개 데이터셋](./en_alpaca_data.json)을 기반으로 합니다.
+
+1. 데이터셋 번역
+
+Alpaca 데이터셋은 다음과 같이 Instruct 부분과 Input, 그리고 Output 부분으로 구성되어있습니다.
+
+```json
+...
+{
+    "instruction": "Describe a time when you had to make a difficult decision.",
+    "input": "",
+    "output": "I had to make a difficult decision when I was working as a project manager at a construction company. I was in charge of a project that needed to be completed by a certain date in order to meet the client\u2019s expectations. However, due to unexpected delays, we were not able to meet the deadline and so I had to make a difficult decision. I decided to extend the deadline, but I had to stretch the team\u2019s resources even further and increase the budget. Although it was a risky decision, I ultimately decided to go ahead with it to ensure that the project was completed on time and that the client\u2019s expectations were met. The project was eventually successfully completed and this was seen as a testament to my leadership and decision-making abilities."
+},
+{
+    "instruction": "Identify the odd one out.",
+    "input": "Twitter, Instagram, Telegram",
+    "output": "Telegram"
+},
+...
+```
+
+Output의 경우 OpenAI의 `text-davinci-003` 모델의 생성 결과이기 때문에, 해당 부분은 번역하지 않았습니다.
+
+따라서 Instruct와 Input 컬럼을 번역하고, 해당 Input부분에 에러가 있는 일부를 제외하였습니다.
+
+번역을 하기 위해 DeepL API 서비스를 사용하였고, 번역된 데이터는 다음과 같은 형태가 됩니다.
+
+```json
+...
+{
+    "instruction": "홀수 중 하나를 밝히세요.",
+    "input": "트위터, 인스타그램, 텔레그램"
+}
+...
+```
+
+2. Output 데이터 생성
+
+이후 해당 Instruct와 Input은 다음과 같이 Batch Decoding 기법을 통해서 OpenAI ChatGPT API(`gpt-3.5-turbo`)를 통해 데이터를 생성합니다. 
+
+Alpaca 연구와 동일하게, 한 Instruct/Input 셋에 대해서 단일 응답만을 생성해 데이터셋을 구성하였습니다.
+
+기존 연구에서는 20개의 데이터셋을 한번에 생성했지만, 한국어로 생성을 진행해보았을 때 10개를 동시에 생성할 때 안정적으로 생성이 진행되어 10개씩 생성하였습니다.
+
+아래는 답변을 생성하는데 사용한 Prompt입니다.
+
+```python
+PROMPT = """\
+다양한 작업에 대한 답변을 생성해주세요. 이러한 작업 지침은 ChatGPT 모델에 주어지며, ChatGPT 모델이 지침을 완료하는지 평가합니다.
+
+요구 사항은 다음과 같습니다:
+1. 다양성을 극대화하기 위해 각 지시에 대해 동사를 반복하지 않도록 하세요.
+2. 지시에 사용되는 언어도 다양해야 합니다. 예를 들어, 질문과 명령형 지시를 결합해야 합니다.
+3. 지시 사항의 유형이 다양해야 합니다. 목록에는 개방형 생성, 분류, 편집 등과 같은 다양한 유형의 작업이 포함되어야 합니다.
+2. GPT 언어 모델은 지시를 완료할 수 있어야 합니다. 예를 들어 어시스턴트에게 시각적 또는 오디오 출력을 생성하도록 요청하지 마세요. 또 다른 예로, 어시스턴트가 어떤 작업도 수행할 수 없으므로 오후 5시에 깨우거나 미리 알림을 설정하도록 요청하지 마세요.
+3. 답변은 한국어로 작성해야 합니다.
+4. 답변을 1~2문장으로 작성하세요. 명령문이나 질문도 허용됩니다.
+5. 지시 사항에 대한 적절한 입력을 생성해야 합니다. 입력 필드에는 지시에 대한 구체적인 예가 포함되어야 합니다. 실제 데이터를 포함해야 하며 단순한 자리 표시자를 포함해서는 안 됩니다. 입력은 지시 사항을 어렵게 만들 수 있는 상당한 내용을 제공해야 하지만 100단어를 넘지 않는 것이 이상적입니다.
+6. 일부 지시사항은 추가 입력이 있고, 일부 지시에는 입력 필드가 비어있습니다. 예를 들어 "세계에서 가장 높은 봉우리는 무엇인가?"라는 일반적인 정보를 묻는 지시의 경우 구체적인 맥락을 제공할 필요가 없어, 입력 필드가 비어있을 수 있습니다.
+7. 출력은 명령어와 입력에 대한 적절한 응답이어야 합니다.
+
+아래에 10개의 명령어와 입력(옵션)에 따라 적절한 응답을 생성하세요. 
+응답은 아래와 같은 형식으로 10가지를 0번 부터 9번 까지, 번호에 따라 해당 번호의 명령어와 입력에 알맞게 작성하세요.
+
+각 응답 사이는 ### 으로 내용을 분리해주세요.
+
+응답0: 첫 번째 응답내용###
+응답1: 두 번째 응답내용###
+...
+응답9: 마지막 응답내용"""
+```
+
+추가적으로, 아래와 같이 ChatGPT API의 system prompt를 추가하였습니다.
+
+```python
+"content": "아래는 작업을 설명하는 명령어입니다. 입력이 없으면 입력을 제외하고, 명령어에 따른 요청을 적절히 완료하는 응답을 작성하세요. 추가적 입력이 있다면 작업을 설명하는 명령어와 추가 컨텍스트를 제공하는 입력에 따라 요청을 적절히 완료하는 응답을 작성하세요.",
+```
+
+한국어로 생성이 완료된 데이터셋은 `ko_alpaca_data.json`에 저장되어 있습니다.
+
+## 모델 학습 방법
+
+### LLAMA 7B 모델 학습
+
+![KoAlpaca LLAMA Train Loss Graph](ko_alpaca_llama_train_02.jpeg)
+
+모델 학습은 A100 80GB 4대로 학습을 진행하였습니다. 학습에 사용한 스크립트는 `train.py`에 저장되어 있고, 학습에 사용한 스크립트는 `train.sh`에 저장되어 있습니다.
+
+#### 모델 학습시 유의사항
+
+아래에도 적혀있지만, 현재(2023.03.18기준) LLAMA 모델은 Huggingface `main` 브랜치에만 있습니다. 또한, Layer 명칭이 지속적으로 바뀌고 있어 주의가 필요합니다. 현재는 `LlamaDecoderLayer`로 되어있습니다.
+
+```bash
+# train.sh
+--fsdp_transformer_layer_cls_to_wrap 'LlamaDecoderLayer'
+```
+
+### Polyglot-ko 5.8B 모델 학습
+
+모델 학습은 A100 80GB 1대로 학습을 진행하였습니다. 
+
+*내용보충 예정
+
+
+---
+
+## Stanford Alpaca: An Instruction-following LLaMA Model 
 [![License](https://img.shields.io/badge/License-Apache_2.0-green.svg)](https://github.com/tatsu-lab/stanford_alpaca/blob/main/LICENSE) 
 [![Python 3.9+](https://img.shields.io/badge/python-3.9+-blue.svg)](https://www.python.org/downloads/release/python-390/) 
 [![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) 
