@@ -116,7 +116,7 @@ PROMPT = """\
 
 ### LLAMA 7B 모델 학습
 
-![KoAlpaca LLAMA Train Loss Graph](ko_alpaca_llama_train_02.jpeg)
+![KoAlpaca LLAMA Train Loss Graph](./assets/ko_alpaca_llama_train_02.jpeg)
 
 모델 학습은 A100 80GB 4대로 학습을 진행하였습니다. 학습에 사용한 스크립트는 `train.py`에 저장되어 있고, 학습에 사용한 스크립트는 `train.sh`에 저장되어 있습니다.
 
