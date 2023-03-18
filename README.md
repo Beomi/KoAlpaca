@@ -32,7 +32,7 @@ Meta의 LLAMA 모델은 한국어 데이터셋을 충분히 학습하지 않아�
 
 ## LLAMA 모델 Inference 예시 코드
 
-[Inference%20Test.ipynb](Inference%20Test.ipynb) 파일을 참고해주세요.
+[Inference Test.ipynb](Inference%20Test.ipynb) 파일을 참고해주세요.
 
 ## 데이터셋 제작 방법
 
