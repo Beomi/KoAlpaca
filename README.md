@@ -30,6 +30,10 @@ Meta의 LLAMA 모델은 한국어 데이터셋을 충분히 학습하지 않아�
 
 보다 한국어에 나은 퀄리티를 얻어보고자 Polyglot-ko 5.8B 모델을 백본으로 사용한 두 가지 모델을 학습시켰습니다.
 
+## LLAMA 모델 Inference 예시 코드
+
+[Inference%20Test.ipynb](Inference%20Test.ipynb) 파일을 참고해주세요.
+
 ## 데이터셋 제작 방법
 
 데이터셋은 기본적으로 [Stanford Alpaca에서 제공한 5만2천개 데이터셋](./en_alpaca_data.json)을 기반으로 합니다.
