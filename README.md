@@ -1,6 +1,6 @@
 
 <p align="center" width="100%">
-<img src="assets/KoAlpaca.png" alt="KoAlpaca icon" style="max-width: 250px; display: block; margin: auto; border-radius: 50%;">
+<img src="assets/KoAlpaca.png" alt="KoAlpaca icon" style="width: 200px; height:200px; display: block; margin: auto; border-radius: 50%;">
 </p>
 
 # KoAlpaca: Korean Alpaca Model based on Stanford Alpaca (feat. LLAMA and Polyglot-ko)
@@ -12,7 +12,7 @@ Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 �
 아래 QR코드를 찍거나, 혹은 [https://t.me/KoAlpacaBot](https://t.me/KoAlpacaBot)에서 만나보세요!
 
 <p align="center" width="100%">
-<img src="assets/koalpaca_telegram.jpg" alt="KoAlpaca Telegram Bot QR Code" style="width: 50%; min-width: 300px; display: block; margin: auto;">
+<img src="assets/koalpaca_telegram.jpg" alt="KoAlpaca Telegram Bot QR Code" style="width: 50%; max-width: 300px; display: block; margin: auto;">
 </p>
 
 한국어 모델과 영한 모델 모두 변경해가며 체험하실 수 있습니다!
