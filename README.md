@@ -144,6 +144,53 @@ PROMPT = """\
 
 *내용보충 예정
 
+## NSMC Benchmark Test
+
+<a target="_blank" href="https://colab.research.google.com/github/Beomi/KoAlpaca/blob/add-nsmc-perform/nsmc_polyglot_and_koalpaca_by_few_shot.ipynb">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
+### Benchmark Test 방식
+
+- `polyglot-ko 5.8b`와 `KoAlpaca-polyglot`과 Benchmark 성능 비교
+- Few-shot Learning으로 2 가지 프롬프트 유형으로 구분하여 테스트 진행
+
+#### 1. Few-shot Learning 구성
+
+- few-shot 구성
+  - `k=10` 설정
+  - 텍스트 토큰 길이가 25 이하인 문장만 구성
+  - 데이터 토큰 길이의 약 75 퍼센타일에 해당하는 데이터만 포함
+
+- NSMC 데이터 토큰 길이 분포
+
+```
+Few shot 케이스 토큰 평균 길이:  20.229
+Few shot 케이스 토큰 최대 길이:  280
+Few shot 케이스 토큰 길이 표준편차:  16.488
+Few shot 케이스 토큰 길이 80 퍼센타일:  27.0
+```
+
+#### 2. 프롬프트 구성
+
+- 프롬프트 유형 1: 매우 단순한 프롬프트 구성. 분석 Task에 대한 내용을 명시적으로 하지 않음
+```python
+def build_prompt_text(sent):
+    return "문장: " + sent + '\n감정:'
+```
+
+- 프롬프트 유형 2: 프롬프트 유형 1에 비해 Task 의도 내용을 포함. 분석 Task에 대한 내용을 의문형으로 표현
+```python
+def build_prompt_text(sent):
+    return '다음 문장은 긍정일까요 부정일까요?\n' + sent + '\n정답:'
+```
+
+#### 3. Benchmark Test 결과
+
+ acc. | 프롬프트 유형 1 | 프롬프트 유형 2
+-- | -- | --
+polyglot-ko | 0.5752 | 0.7223
+**koalpaca-polyglot** | **0.6939** | **0.7683**
 
 ---
 
