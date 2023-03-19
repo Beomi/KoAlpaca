@@ -146,7 +146,7 @@ PROMPT = """\
 
 ## NSMC Benchmark Test
 
-<a target="_blank" href="https://colab.research.google.com/github/Beomi/KoAlpaca/blob/add-nsmc-perform/nsmc_polyglot_and_koalpaca_by_few_shot.ipynb">
+<a target="_blank" href="https://colab.research.google.com/github/Beomi/KoAlpaca/blob/master/nsmc_polyglot_and_koalpaca_by_few_shot.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
