@@ -11,10 +11,10 @@ Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 �
 
 ### 카카오톡 봇: 한국어 전용 & 맥락 기억 X
 
-링크: 아래 이미지 클릭 or [http://pf.kakao.com/_wdRxcxj/chat](http://pf.kakao.com/_wdRxcxj/chat)
+링크: 아래 이미지 클릭 or [http://pf.kakao.com/_wdRxcxj](http://pf.kakao.com/_wdRxcxj)
 
 <p align="center" width="100%">
-<a href="http://pf.kakao.com/_wdRxcxj/chat">
+<a href="http://pf.kakao.com/_wdRxcxj">
 <img src="https://user-images.githubusercontent.com/11323660/226633444-40f0a6b1-1a04-4659-a2ea-bef7e9d22bb4.png" alt="KoAlpaca KakaoTalk Example" style="width: 50%; max-width: 300px; display: block; margin: auto;">
 </a>
 </p>
