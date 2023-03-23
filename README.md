@@ -3,6 +3,15 @@
 <img src="assets/KoAlpaca.png" alt="KoAlpaca icon" style="width: 200px; height:200px; display: block; margin: auto; border-radius: 50%;">
 </p>
 
+## Update Logs
+
+- 2023.03.23: [🤗LLAMA 65B 기반 KoAlpaca 모델](https://huggingface.co/beomi/KoAlpaca-65B-LoRA)을 공개합니다. (LoRA로 학습) 
+
+- 2023.03.22: 카카오톡에 포팅된 [KoAlpaca 봇](http://pf.kakao.com/_wdRxcxj)이 추가되었습니다. 
+
+
+---
+
 # KoAlpaca: Korean Alpaca Model based on Stanford Alpaca (feat. LLAMA and Polyglot-ko)
 
 Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 진행한, 한국어 Alpaca 모델입니다.
@@ -39,10 +48,13 @@ Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 �
 
 ## 완성된 모델: 한국어 모델(Polyglot-ko) & 영한 모델(LLAMA)
 
-KoAlpaca는 백본 모델로 두 가지 모델을 사용했습니다.
+KoAlpaca는 백본 모델로 한국어 모델은 Polyglot-ko(5.8B)모델을, 영문+한국어 기반 모델은 LLAMA를 사용하였습니다.
 
-1. Polyglot-ko 5.8B 기반 -> [https://huggingface.co/beomi/KoAlpaca-Polyglot](https://huggingface.co/beomi/KoAlpaca-Polyglot)
-2. Meta LLAMA 7B 기반 -> [https://huggingface.co/beomi/KoAlpaca](https://huggingface.co/beomi/KoAlpaca)
+1. Polyglot-ko 5.8B 기반 [Full Finetune] -> [🤗 https://huggingface.co/beomi/KoAlpaca-Polyglot](https://huggingface.co/beomi/KoAlpaca-Polyglot)
+2. Meta LLAMA 7B 기반 [Full Finetune] -> [🤗 https://huggingface.co/beomi/KoAlpaca](https://huggingface.co/beomi/KoAlpaca)
+3. Meta LLAMA 65B 기반 [LoRA] -> [🤗 https://huggingface.co/beomi/KoAlpaca-65B-LoRA](https://huggingface.co/beomi/KoAlpaca-65B-LoRA)
+
+*LLAMA 13B, 30B LoRA는 학습 예정입니다. (참고: LLAMA 13B는 찬성님([@deep-diver](https://github.com/deep-diver))이 학습하신 [🤗chansung/koalpaca-lora-13b](https://huggingface.co/chansung/koalpaca-lora-13b)가 공개되어있습니다.)
 
 Meta의 LLAMA 모델은 한국어 데이터셋을 충분히 학습하지 않아서, 실제 Inference를 돌려보았을 때 한국어 성능이 낮게 나오는 이슈가 있습니다.
 
@@ -50,7 +62,21 @@ Meta의 LLAMA 모델은 한국어 데이터셋을 충분히 학습하지 않아�
 
 ## LLAMA 모델 Inference 예시 코드
 
+### Jupyter Notebook 샘플
+
 [Inference Test.ipynb](Inference%20Test.ipynb) 파일을 참고해주세요.
+
+### Gradio 샘플
+
+찬성님([@deep-diver](https://github.com/deep-diver))의 [deep-diver/Alpaca-LoRA-Serve](https://github.com/deep-diver/Alpaca-LoRA-Serve)레포를 참고해 실행해보세요.
+
+```bash
+# 위 Repo의 가이드대로 설치 후..
+BASE_URL=decapoda-research/llama-65b-hf  # 주의: 65B 모델은 기본 용량이 100GB 이상입니다.
+FINETUNED_CKPT_URL=beomi/KoAlpaca-65B-LoRA  # 주의: 65B 모델은 A100 80G등 Vram이 아주 큰 GPU에서만 돌아갑니다.
+
+python app.py --base_url $BASE_URL --ft_ckpt_url $FINETUNED_CKPT_URL --port 6006
+```
 
 ## 데이터셋 제작 방법
 
@@ -134,7 +160,7 @@ PROMPT = """\
 
 한국어로 생성이 완료된 데이터셋은 `ko_alpaca_data.json`에 저장되어 있습니다.
 
-## 모델 학습 방법
+## Fine tune 방식 모델 학습 방법
 
 ### LLAMA 7B 모델 학습
 
@@ -156,6 +182,23 @@ PROMPT = """\
 모델 학습은 A100 80GB 1대로 학습을 진행하였습니다. 
 
 *내용보충 예정
+
+## LoRA 방식 모델 학습 방법
+
+### LLAMA 13B 모델 학습
+
+*추가 예정
+
+### LLAMA 65B 모델 학습
+
+🤗 Huggingface Repo: [https://huggingface.co/beomi/KoAlpaca-65B-LoRA](https://huggingface.co/beomi/KoAlpaca-65B-LoRA)
+
+모델 학습은 A100 80GB 8대로 진행했습니다. 학습에 사용한 코드는 https://github.com/tloen/alpaca-lora 을 기반으로 사용하였습니다.
+
+데이터셋은 해당 레포의 `alpaca_data_cleaned.json`(영문)과 현재 레포의 `ko_alpaca_data.json`를 합쳐 학습에 사용하였습니다.
+
+
+# Benchmarks
 
 ## NSMC Benchmark Test
 
