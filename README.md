@@ -61,7 +61,7 @@ KoAlpaca는 백본 모델로 한국어 모델은 Polyglot-ko(5.8B)모델을, 영
 4. Meta LLAMA 30B 기반 [LoRA] -> [🤗 https://huggingface.co/beomi/KoAlpaca-30B-LoRA](https://huggingface.co/beomi/KoAlpaca-30B-LoRA)
 5. Meta LLAMA 65B 기반 [LoRA] -> [🤗 https://huggingface.co/beomi/KoAlpaca-65B-LoRA](https://huggingface.co/beomi/KoAlpaca-65B-LoRA)
 
-*LLAMA 30B LoRA는 학습 중입니다. (참고: LLAMA 13B로는, 찬성님([@deep-diver](https://github.com/deep-diver))이 학습하신 [🤗chansung/koalpaca-lora-13b](https://huggingface.co/chansung/koalpaca-lora-13b)가 추가적으로 공개되어있습니다.)
+> 참고: LLAMA 13B로는, 찬성님([@deep-diver](https://github.com/deep-diver))이 학습하신 [🤗chansung/koalpaca-lora-13b](https://huggingface.co/chansung/koalpaca-lora-13b)가 추가적으로 공개되어있습니다.)
 
 Meta의 LLAMA 모델은 한국어 데이터셋을 충분히 학습하지 않아서, 실제 Inference를 돌려보았을 때 한국어 성능이 낮게 나오는 이슈가 있습니다.
 
