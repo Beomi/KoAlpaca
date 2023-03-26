@@ -5,6 +5,8 @@
 
 ## Update Logs
 
+- 2023.03.26: [🤗LLAMA 33B 기반 KoAlpaca 모델](https://huggingface.co/beomi/KoAlpaca-33B-LoRA)을 공개합니다. (LoRA로 학습) 
+
 - 2023.03.24: [🤗LLAMA 13B 기반 KoAlpaca 모델](https://huggingface.co/beomi/KoAlpaca-13B-LoRA)을 공개합니다. (LoRA로 학습) 
 
 - 2023.03.23: [🤗LLAMA 65B 기반 KoAlpaca 모델](https://huggingface.co/beomi/KoAlpaca-65B-LoRA)을 공개합니다. (LoRA로 학습) 
@@ -55,7 +57,8 @@ KoAlpaca는 백본 모델로 한국어 모델은 Polyglot-ko(5.8B)모델을, 영
 1. Polyglot-ko 5.8B 기반 [Full Finetune] -> [🤗 https://huggingface.co/beomi/KoAlpaca-Polyglot](https://huggingface.co/beomi/KoAlpaca-Polyglot)
 2. Meta LLAMA 7B 기반 [Full Finetune] -> [🤗 https://huggingface.co/beomi/KoAlpaca](https://huggingface.co/beomi/KoAlpaca)
 3. Meta LLAMA 13B 기반 [LoRA] -> [🤗 https://huggingface.co/beomi/KoAlpaca-13B-LoRA](https://huggingface.co/beomi/KoAlpaca-13B-LoRA)
-4. Meta LLAMA 65B 기반 [LoRA] -> [🤗 https://huggingface.co/beomi/KoAlpaca-65B-LoRA](https://huggingface.co/beomi/KoAlpaca-65B-LoRA)
+4. Meta LLAMA 33B 기반 [LoRA] -> [🤗 https://huggingface.co/beomi/KoAlpaca-33B-LoRA](https://huggingface.co/beomi/KoAlpaca-33B-LoRA)
+5. Meta LLAMA 65B 기반 [LoRA] -> [🤗 https://huggingface.co/beomi/KoAlpaca-65B-LoRA](https://huggingface.co/beomi/KoAlpaca-65B-LoRA)
 
 *LLAMA 30B LoRA는 학습 중입니다. (참고: LLAMA 13B로는, 찬성님([@deep-diver](https://github.com/deep-diver))이 학습하신 [🤗chansung/koalpaca-lora-13b](https://huggingface.co/chansung/koalpaca-lora-13b)가 추가적으로 공개되어있습니다.)
 
@@ -75,8 +78,8 @@ Meta의 LLAMA 모델은 한국어 데이터셋을 충분히 학습하지 않아�
 
 ```bash
 # 위 Repo의 가이드대로 설치 후..
-BASE_URL=decapoda-research/llama-13b-hf  # 65B모델은 llama-65b-hf 주의: 65B 모델은 기본 용량이 100GB 이상입니다.
-FINETUNED_CKPT_URL=beomi/KoAlpaca-13B-LoRA  # 65B모델은 KoAlpaca-65B-LoRA 주의: 65B 모델은 A100 80G등 Vram이 아주 큰 GPU에서만 돌아갑니다.
+BASE_URL=decapoda-research/llama-13b-hf  # 33B모델은 llama-33b-hf 65B모델은 llama-65b-hf 주의: 65B 모델은 기본 용량이 100GB 이상입니다.
+FINETUNED_CKPT_URL=beomi/KoAlpaca-13B-LoRA  # 33B모델은 KoAlpaca-33B-LoRA 65B모델은 KoAlpaca-65B-LoRA 주의: 65B 모델은 A100 80G등 Vram이 아주 큰 GPU에서만 돌아갑니다.
 
 python app.py --base_url $BASE_URL --ft_ckpt_url $FINETUNED_CKPT_URL --port 6006
 ```
@@ -198,7 +201,11 @@ PROMPT = """\
 
 ### LLAMA 35B 모델 학습
 
-*추가예정
+🤗 Huggingface Repo: [https://huggingface.co/beomi/KoAlpaca-33B-LoRA](https://huggingface.co/beomi/KoAlpaca-33B-LoRA)
+
+모델 학습은 A100 40GB 2대로 진행했습니다. 학습에 사용한 코드는 https://github.com/tloen/alpaca-lora 을 기반으로 사용하였습니다.
+
+데이터셋은 해당 레포의 `alpaca_data_cleaned.json`(영문)과 현재 레포의 `ko_alpaca_data.json`를 합쳐 학습에 사용하였습니다.
 
 ### LLAMA 65B 모델 학습
 
