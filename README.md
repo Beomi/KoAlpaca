@@ -124,13 +124,6 @@ python app.py --base_url $BASE_URL --ft_ckpt_url $FINETUNED_CKPT_URL --port 6006
 
 ## 데이터셋 v1.1 제작 방법
 
-<p align="center" width="100%">
-<a href="https://chat.koalpaca.com">
-<img src="https://user-images.githubusercontent.com/11323660/233344530-8eeb6078-f2fb-453d-982b-257a40b1e0bb.png
-" alt="ChatKoAlpaca web UI">
-</a>
-</p>
-
 v1.1 데이터셋은 기존 Alpaca모델이 대답을 짧게 하는 경향, 그리고 맥락을 이해하지 못하는 경향을 개선하기 위해 제작되었습니다.
 
 1. 데이터셋 선정 및 수집
@@ -141,10 +134,11 @@ v1.1 데이터셋은 네이버 지식인을 크롤링하여 만들었습니다.
 
 2. 데이터 가공
 
-실제 생성 데이터는 질문과 질문 본문, 그리고 채택된 답변의 본문을 기반으로 생성되었습니다.
+실제 생성 데이터는 질문과 질문 본문, 그리고 채택된 답변의 본문을 기반으로 새로 생성되었습니다. 
 
 데이터를 ChatGPT를 통해 생성하였고, 이때 Batch Decoding을 통해 생성하였습니다.
 
+> 참고: 기존 지식인 질문과 답변은 ChatGPT가 참조한 시드로 사용되었습니다
 
 ## 데이터셋 v1.0 제작 방법
 
