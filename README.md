@@ -5,6 +5,11 @@
 
 ## Update Logs
 
+- 2023.04.20
+    - [KoAlpaca v1.1 데이터셋](KoAlpaca_v1.1.jsonl) 공개
+    - [🤗Polyglot-ko 12.8B 기반 KoAlpaca-Polyglot-12.8B-v1.1b fp16 모델](https://huggingface.co/beomi/KoAlpaca-Polyglot-12.8B) 및 [🤗8bit 모델](https://huggingface.co/beomi/KoAlpaca-Polyglot-12.8B/tree/8bit) 공개
+    - [ChatKoAlpaca Web UI(v1.1b)](https://chat.koalpaca.com/) 공개
+
 - 2023.03.26: [🤗LLAMA 30B 기반 KoAlpaca 모델](https://huggingface.co/beomi/KoAlpaca-30B-LoRA)을 공개합니다. (LoRA로 학습)
   - LLAMA 30B 학습은 GIST [Sundong Kim](https://sundong.kim) 교수님의 A100 지원으로 학습되었습니다. 감사합니다 😄
 
@@ -19,11 +24,33 @@
 
 # KoAlpaca: Korean Alpaca Model based on Stanford Alpaca (feat. LLAMA and Polyglot-ko)
 
-Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 진행한, 한국어 Alpaca 모델입니다.
+Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 진행한, 한국어를 이해하는 Alpaca 모델입니다.
 
-## 바로 써보기: 카카오톡 봇 혹은 Telegram Bot으로 만나보세요!
+## 바로 써보기: 채팅형 웹 페이지(v1.1b-chat) 혹은 카카오톡 봇, Telegram Bot으로 만나보세요!
 
-### 카카오톡 봇: 한국어 전용 & 맥락 기억 X
+### ChatKoAlpaca: 채팅형 KoAlpaca (Polyglot-ko-12.8b-v1.1b)
+
+- 설치 없이 Web으로 곧바로 만날 수 있습니다.
+- 이전 대화의 맥락을 기억해 답변을 생성합니다.
+- 최대 512 토큰의 응답을 생성하며, 이전 맥락은 (신규 생성 답변을 포함해) 최대 2048 토큰을 기억합니다.
+- 데모에서는 RTX 3090 24G GPU 1대로 서빙중이며, 8Bit quantized된 모델로 서비스중입니다.
+
+링크: [https://chat.koalpaca.com](https://chat.koalpaca.com/)
+
+<p align="center" width="100%">
+<a href="https://chat.koalpaca.com">
+<img src="https://user-images.githubusercontent.com/11323660/233331925-77ad15d6-f8f4-4cf5-8e7c-c822e2f3d143.png
+" alt="ChatKoAlpaca web UI">
+</a>
+</p>
+
+위 서빙에 사용한 Gradio 코드는 [webui 폴더](https://github.com/Beomi/KoAlpaca/tree/main/webui)를 참고해주세요.
+
+
+### 카카오톡 봇: KoAlpaca-Polyglot-ko-5.8b-v1.1b
+
+- 응답 5초 제한으로 인해 200자 제한
+- 맥락 기억하지 않습니다.
 
 링크: 아래 이미지 클릭 or [http://pf.kakao.com/_wdRxcxj](http://pf.kakao.com/_wdRxcxj)
 
@@ -34,7 +61,10 @@ Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 �
 </p>
 
 
-### 텔레그램 봇: 한국어 & 한국어+영어 모델 사용가능, 맥락 저장
+### 텔레그램 봇: 한국어 5.8B v1.1b 모델 및 LLAMA 7B v1.0 모델 사용가능, 맥락 기억 X
+
+- 최대 입력 1024자, 최대 출력 512토큰
+- 맥락 기억하지 않습니다.
 
 아래 QR코드를 찍거나, 혹은 [https://t.me/KoAlpacaBot](https://t.me/KoAlpacaBot)에서 만나보세요!
 
@@ -42,7 +72,7 @@ Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 �
 <img src="assets/koalpaca_telegram.jpg" alt="KoAlpaca Telegram Bot QR Code" style="width: 50%; max-width: 300px; display: block; margin: auto;">
 </p>
 
-한국어 모델과 영한 모델 모두 변경해가며 체험하실 수 있습니다!
+한국어 기반 모델과 LLAMA 기반 모델 모두 변경해가며 체험하실 수 있습니다!
 
 <p align="center" width="100%">
 <img src="assets/telegram_example_1.png" alt="KoAlpaca Telegram Bot QR Code" style="width: 45%; max-width: 300px; display: inline-block; margin: auto;">
@@ -51,29 +81,35 @@ Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 �
 
 > 📣 각 모델별 한 대의 GPU로 서빙되고 있어서, 생성에 시간이 걸릴 수 있습니다. 속도를 위해 생성 최대 토큰은 요청당 128토큰으로 제한되어있습니다.
 
-## 완성된 모델: 한국어 모델(Polyglot-ko) & 영한 모델(LLAMA)
+## 완성된 모델: 한국어 기반 모델(Polyglot-ko) & 영한 모델(LLAMA)
 
 KoAlpaca는 백본 모델로 한국어 모델은 Polyglot-ko(5.8B)모델을, 영문+한국어 기반 모델은 LLAMA를 사용하였습니다.
 
-1. Polyglot-ko 5.8B 기반 [Full Finetune] -> [🤗 https://huggingface.co/beomi/KoAlpaca-Polyglot](https://huggingface.co/beomi/KoAlpaca-Polyglot)
-2. Meta LLAMA 7B 기반 [Full Finetune] -> [🤗 https://huggingface.co/beomi/KoAlpaca](https://huggingface.co/beomi/KoAlpaca)
-3. Meta LLAMA 13B 기반 [LoRA] -> [🤗 https://huggingface.co/beomi/KoAlpaca-13B-LoRA](https://huggingface.co/beomi/KoAlpaca-13B-LoRA)
-4. Meta LLAMA 30B 기반 [LoRA] -> [🤗 https://huggingface.co/beomi/KoAlpaca-30B-LoRA](https://huggingface.co/beomi/KoAlpaca-30B-LoRA)
-5. Meta LLAMA 65B 기반 [LoRA] -> [🤗 https://huggingface.co/beomi/KoAlpaca-65B-LoRA](https://huggingface.co/beomi/KoAlpaca-65B-LoRA)
+1. **Polyglot-ko 12.8B 기반 [Full Finetune v1.1]** -> [🤗 beomi/KoAlpaca-Polyglot-12.8B](https://huggingface.co/beomi/KoAlpaca-Polyglot-12.8B)
+  - 해당 모델은 [ChatKoAlpaca](https://chat.koalpaca.com/)에서 사용되었습니다.
+  - 해당 모델은 [🤗 8Bit quantized된 모델](https://huggingface.co/beomi/KoAlpaca-Polyglot-12.8B/tree/8bit)도 제공합니다.
+2. Polyglot-ko 5.8B 기반 [Full Finetune] -> [🤗 beomi/KoAlpaca-Polyglot](https://huggingface.co/beomi/KoAlpaca-Polyglot)
+3. Meta LLAMA 7B 기반 [Full Finetune] -> [🤗 beomi/KoAlpaca](https://huggingface.co/beomi/KoAlpaca)
+4. Meta LLAMA 13B 기반 [LoRA] -> [🤗 KoAlpaca-13B-LoRA](https://huggingface.co/beomi/KoAlpaca-13B-LoRA)
+5. Meta LLAMA 30B 기반 [LoRA] -> [🤗 KoAlpaca-30B-LoRA](https://huggingface.co/beomi/KoAlpaca-30B-LoRA)
+6. Meta LLAMA 65B 기반 [LoRA] -> [🤗 KoAlpaca-65B-LoRA](https://huggingface.co/beomi/KoAlpaca-65B-LoRA)
 
 > 참고: LLAMA 13B로는, 찬성님([@deep-diver](https://github.com/deep-diver))이 학습하신 [🤗chansung/koalpaca-lora-13b](https://huggingface.co/chansung/koalpaca-lora-13b)가 추가적으로 공개되어있습니다.)
 
 Meta의 LLAMA 모델은 한국어 데이터셋을 충분히 학습하지 않아서, 실제 Inference를 돌려보았을 때 한국어 성능이 낮게 나오는 이슈가 있습니다.
 
-보다 한국어에 나은 퀄리티를 얻어보고자 Polyglot-ko 5.8B 모델을 백본으로 사용한 모델도 학습시켰습니다.
+보다 한국어에 나은 퀄리티를 얻어보고자 Polyglot-ko 5.8B, 12.8B 모델을 백본으로 사용한 모델도 학습시켰습니다.
 
-## LLAMA 모델 Inference 예시 코드
+이후 v1.1 데이터와 함께, 이전 대화의 맥락과 사용자의 추가 입력의 맥락을 이해하는 모델인 KoAlpaca v1.1을 공개합니다.
 
-### Jupyter Notebook 샘플
 
-[Inference Test.ipynb](Inference%20Test.ipynb) 파일을 참고해주세요.
+## KoAlpaca 모델 실행 예시 코드
 
-### Gradio 샘플
+### Gradio 샘플 - Fullfinetune & 8bit 🌟 추천 🌟
+
+이 레포의 [webui 폴더](https://github.com/Beomi/KoAlpaca/tree/main/webui)를 참고해주세요.
+
+### Gradio 샘플 - LoRA
 
 찬성님([@deep-diver](https://github.com/deep-diver))의 [deep-diver/Alpaca-LoRA-Serve](https://github.com/deep-diver/Alpaca-LoRA-Serve)레포를 참고해 실행해보세요.
 
@@ -85,7 +121,36 @@ FINETUNED_CKPT_URL=beomi/KoAlpaca-13B-LoRA  # 30B모델은 KoAlpaca-30B-LoRA 65B
 python app.py --base_url $BASE_URL --ft_ckpt_url $FINETUNED_CKPT_URL --port 6006
 ```
 
-## 데이터셋 제작 방법
+### Jupyter Notebook 샘플
+
+[Inference Test.ipynb](Inference%20Test.ipynb) 파일을 참고해주세요.
+
+
+## 데이터셋 v1.1 제작 방법
+
+<p align="center" width="100%">
+<a href="https://chat.koalpaca.com">
+<img src="https://user-images.githubusercontent.com/11323660/233344530-8eeb6078-f2fb-453d-982b-257a40b1e0bb.png
+" alt="ChatKoAlpaca web UI">
+</a>
+</p>
+
+v1.1 데이터셋은 기존 Alpaca모델이 대답을 짧게 하는 경향, 그리고 맥락을 이해하지 못하는 경향을 개선하기 위해 제작되었습니다.
+
+1. 데이터셋 선정 및 수집
+
+v1.1 데이터셋은 네이버 지식인을 크롤링하여 만들었습니다.
+
+[네이버 지식인 베스트](https://kin.naver.com/best/listaha.naver) 전체 질문을 수집하였습니다.
+
+2. 데이터 가공
+
+실제 생성 데이터는 질문과 질문 본문, 그리고 채택된 답변의 본문을 기반으로 생성되었습니다.
+
+데이터를 ChatGPT를 통해 생성하였고, 이때 Batch Decoding을 통해 생성하였습니다.
+
+
+## 데이터셋 v1.0 제작 방법
 
 데이터셋은 기본적으로 [Stanford Alpaca에서 제공한 5만2천개 데이터셋](./en_alpaca_data.json)을 기반으로 합니다.
 
@@ -169,26 +234,33 @@ PROMPT = """\
 
 ## Fine tune 방식 모델 학습 방법
 
-### LLAMA 7B 모델 학습
+### ChatKoAlpaca(KoAlpaca Polyglot-ko-12.8B-v1.1b) 모델 학습
 
-![KoAlpaca LLAMA Train Loss Graph](./assets/ko_alpaca_llama_train_02.jpeg)
+ChatKoAlpaca(KoAlpaca Polyglot-ko-12.8B-v1.1b) 모델은 A100 80GB 4대로 학습을 진행하였고,
+DeepSpeed ZeRO-3을 통해 Full Sharding으로 학습을 진행하였습니다.
 
-모델 학습은 A100 80GB 4대로 학습을 진행하였습니다. 학습에 사용한 스크립트는 `train.py`에 저장되어 있고, 학습에 사용한 스크립트는 `train.sh`에 저장되어 있습니다.
-
-#### 모델 학습시 유의사항
-
-아래에도 적혀있지만, 현재(2023.03.18기준) LLAMA 모델은 Huggingface `main` 브랜치에만 있습니다. 또한, Layer 명칭이 지속적으로 바뀌고 있어 주의가 필요합니다. 현재는 `LlamaDecoderLayer`로 되어있습니다.
-
-```bash
-# train.sh
---fsdp_transformer_layer_cls_to_wrap 'LlamaDecoderLayer'
-```
+해당 코드는 현재 레포의 `train_1.1b`폴더를 참고해주세요.
 
 ### Polyglot-ko 5.8B 모델 학습
 
 모델 학습은 A100 80GB 1대로 학습을 진행하였습니다. 
 
-*내용보충 예정
+### LLAMA 7B 모델 학습
+
+![KoAlpaca LLAMA Train Loss Graph](./assets/ko_alpaca_llama_train_02.jpeg)
+
+LLAMA기반 모델 학습은 A100 80GB 4대로 학습을 진행하였고, FSDP를 통해 학습했습니다. 
+
+학습에 사용한 스크립트는 `train.py`에 저장되어 있고, 학습에 사용한 스크립트는 `train.sh`에 저장되어 있습니다.
+
+#### FSDP 모델 학습시 유의사항
+
+LLAMA 모델이 Hugginface Transformers 4.28.0 이상 버전에 포함되었습니다. 그 이하 버전을 사용하면 `llama`가 없다는 에러가 발생합니다. FSDP 사용시 감싸줄 레이어로는 `LlamaDecoderLayer`를 사용합니다.
+
+```bash
+# train.sh
+--fsdp_transformer_layer_cls_to_wrap 'LlamaDecoderLayer'
+```
 
 ## LoRA 방식 모델 학습 방법
 

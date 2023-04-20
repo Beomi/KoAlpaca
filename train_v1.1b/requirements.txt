@@ -1,0 +1,6 @@
+torch
+deepspeed
+transformers
+accelerate
+datasets
+evaluate
