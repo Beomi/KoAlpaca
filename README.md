@@ -30,19 +30,15 @@ Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 �
 
 ### ChatKoAlpaca: 채팅형 KoAlpaca (Polyglot-ko-12.8b-v1.1b)
 
+<img width="1001" alt="image" src="https://user-images.githubusercontent.com/11323660/233350409-64f09485-ba99-44e6-ab43-9a45c5e593dd.png">
+
+
 - 설치 없이 Web으로 곧바로 만날 수 있습니다.
 - 이전 대화의 맥락을 기억해 답변을 생성합니다.
 - 최대 512 토큰의 응답을 생성하며, 이전 맥락은 (신규 생성 답변을 포함해) 최대 2048 토큰을 기억합니다.
 - 데모에서는 RTX 3090 24G GPU 1대로 서빙중이며, 8Bit quantized된 모델로 서비스중입니다.
 
 링크: [https://chat.koalpaca.com](https://chat.koalpaca.com/)
-
-<p align="center" width="100%">
-<a href="https://chat.koalpaca.com">
-<img src="https://user-images.githubusercontent.com/11323660/233331925-77ad15d6-f8f4-4cf5-8e7c-c822e2f3d143.png
-" alt="ChatKoAlpaca web UI">
-</a>
-</p>
 
 위 서빙에 사용한 Gradio 코드는 [webui 폴더](https://github.com/Beomi/KoAlpaca/tree/main/webui)를 참고해주세요.
 
