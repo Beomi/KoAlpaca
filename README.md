@@ -28,7 +28,7 @@ Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 �
 
 ## 바로 써보기: 채팅형 웹 페이지(v1.1b-chat) 혹은 카카오톡 봇, Telegram Bot으로 만나보세요!
 
-### ChatKoAlpaca: 채팅형 KoAlpaca (Polyglot-ko-12.8b-v1.1b)
+### [ChatKoAlpaca: 채팅형 KoAlpaca (Polyglot-ko-12.8b-v1.1b)](https://chat.koalpaca.com/)
 
 <img width="1001" alt="image" src="https://user-images.githubusercontent.com/11323660/233350409-64f09485-ba99-44e6-ab43-9a45c5e593dd.png">
 
