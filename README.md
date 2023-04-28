@@ -9,7 +9,7 @@
 - 2023.04.28
     - Logo 업데이트 🎉
 - 2023.04.26
-    - [chat.koalpaca.com](chat.koalpaca.com) 에 [Huggingface ChatUI](https://huggingface.co/spaces/huggingchat/chat-ui/tree/main) 적용
+    - [chat.koalpaca.com](https://chat.koalpaca.com) 에 [Huggingface ChatUI](https://huggingface.co/spaces/huggingchat/chat-ui/tree/main) 적용
 - 2023.04.20
     - [KoAlpaca v1.1 데이터셋](KoAlpaca_v1.1.jsonl) 공개
     - [🤗Polyglot-ko 12.8B 기반 KoAlpaca-Polyglot-12.8B-v1.1b fp16 모델](https://huggingface.co/beomi/KoAlpaca-Polyglot-12.8B) 및 [🤗8bit 모델](https://huggingface.co/beomi/KoAlpaca-Polyglot-12.8B/tree/8bit) 공개
