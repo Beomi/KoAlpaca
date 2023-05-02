@@ -5,7 +5,8 @@
 
 ## Update Logs
 
-
+- 2023.05.03
+    - [🤗Polyglot-ko 5.8B 기반 KoAlpaca-Polyglot-5.8B-v1.1b fp16 모델](https://huggingface.co/beomi/KoAlpaca-Polyglot-5.8B) 및 [🤗8bit 모델](https://huggingface.co/beomi/KoAlpaca-Polyglot-5.8B/tree/8bit) 공개
 - 2023.04.28
     - Logo 업데이트 🎉
 - 2023.04.26
