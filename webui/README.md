@@ -1,7 +1,5 @@
 # WebUI for ChatKoAlpaca
 
-![ChatKoAlpaca Web page with chat input](../assets/chat_koalpac_screenshot.jpeg)
-
 ## 실행 방법
 
 - Python 3.9+ 
