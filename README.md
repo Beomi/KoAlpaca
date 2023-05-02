@@ -1,6 +1,6 @@
 
 <p align="center" width="100%">
-<img src="assets/new_koalpaca_final.png" alt="KoAlpaca icon" style="width: 200px; height:200px; display: block; margin: auto; border-radius: 50%;">
+<img src="assets/new_koalpaca_final.svg" alt="KoAlpaca icon" style="width: 200px; height:200px; display: block; margin: auto; border-radius: 50%;">
 </p>
 
 ## Update Logs
