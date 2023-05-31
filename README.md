@@ -6,8 +6,8 @@
 ## Update Logs
 
 - 2023.05.30
-    - Colab 학습 예제 추가: QLoRA로 Polyglot-ko 12.8B 모델 KoAlpaca v1.1a 학습 with 4bit 
-    <a style='display:inline' target="_blank" href="https://colab.research.google.com/gist/Beomi/f163a6c04a869d18ee1a025b6d33e6d8/2023_05_26_bnb_4bit_koalpaca_v1_1a_on_polyglot_ko_12_8b.ipynb">
+    - 무료 Colab(T4 GPU)에서 동작하는 학습 예제 추가: QLoRA로 Polyglot-ko 12.8B 모델 KoAlpaca v1.1a 학습 with 4bit 
+    <a style='display:inline' target="_blank" href="https://colab.research.google.com/gist/Beomi/a3032e4eaa33b86fdf8de1f47f15a647/2023_05_26_bnb_4bit_koalpaca_v1_1a_on_polyglot_ko_12_8b.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
