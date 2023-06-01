@@ -8,11 +8,8 @@ pip install -r requirements.txt
 
 ## 데이터 설정
 
-```bash
-cp ../KoAlpaca_v1.1.jsonl ./KoAlpaca_v1.1.json
-```
-
-- 참고: 업로드된 KoAlpaca 12.8B v1.1b는 위 데이터에서 추가 맥락으로서 URL의 '채택 답변' 본문을 `input` 으로 추가하여 학습한 모델입니다.
+- 데이터는 `KoAlpaca_v1.1a_textonly.json` 파일을 사용합니다.
+- 해당 데이터는 Root 디렉토리의 `KoAlpaca_v1.1.jsonl`을, `### 질문: ...\n\n### 답변: ...<|endoftext|>`꼴로 변환한 `text` 컬럼만 있는 json 파일입니다.
 
 ## polyglot-ko-5.8b 모델 학습 w/ 단일 GPU (A100 80G x1)
 
