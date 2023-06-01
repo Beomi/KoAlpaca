@@ -6,8 +6,10 @@
 ## Update Logs
 
 - 2023.05.30
-    - 무료 Colab(T4 GPU)에서 동작하는 학습 예제 추가: QLoRA로 Polyglot-ko 12.8B 모델 KoAlpaca v1.1a 학습 with 4bit 
-    <a style='display:inline' target="_blank" href="https://colab.research.google.com/gist/Beomi/a3032e4eaa33b86fdf8de1f47f15a647/2023_05_26_bnb_4bit_koalpaca_v1_1a_on_polyglot_ko_12_8b.ipynb">
+    - [무료 Colab(T4 GPU)에서 동작하는 학습 예제](https://colab.research.google.com/gist/Beomi/a3032e4eaa33b86fdf8de1f47f15a647/2023_05_26_bnb_4bit_koalpaca_v1_1a_on_polyglot_ko_12_8b.ipynb) 추가: QLoRA로 Polyglot-ko 12.8B 모델 KoAlpaca v1.1a 학습 with 4bit 
+        - Colab 무료 - T4에서는 50sample에 약 4분, 1epoch에 약 15시간(최대 사용시간 초과)
+        - Colab Pro - A100에서는 50sample에 약 44초, 1epochs에 약 2-3시간
+        <a style='display:inline' target="_blank" href="https://colab.research.google.com/gist/Beomi/a3032e4eaa33b86fdf8de1f47f15a647/2023_05_26_bnb_4bit_koalpaca_v1_1a_on_polyglot_ko_12_8b.ipynb">
   <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
 </a>
 
