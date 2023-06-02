@@ -118,6 +118,10 @@ Meta의 LLAMA 모델은 한국어 데이터셋을 충분히 학습하지 않아�
 
 ### Huggingface Pipeline으로 실행
 
+<a target="_blank" href="https://colab.research.google.com/drive/1a5xVG4VSh5TSRfSVchyCqk9onadhIxTs?usp=sharing">
+  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+</a>
+
 - 최신버전 torch / HF 라이브러리 설치
 
 ```bash
