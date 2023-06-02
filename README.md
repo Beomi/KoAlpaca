@@ -5,6 +5,9 @@
 
 ## Update Logs
 
+- 2023.06.02
+    - [RTX 3090/4090/A5000으로 Polyglot-ko 5.8b full finetune](https://github.com/Beomi/KoAlpaca/blob/main/train_v1.1b/README.md#polyglot-ko-58b-%EB%AA%A8%EB%8D%B8-%ED%95%99%EC%8A%B5-w-3x-rtx-3090-gpu-%ED%98%B9%EC%9D%80-rtx-4090-a5000) 가이드 추가
+
 - 2023.05.30
     - [무료 Colab(T4 GPU)에서 동작하는 학습 예제](https://colab.research.google.com/gist/Beomi/a3032e4eaa33b86fdf8de1f47f15a647/2023_05_26_bnb_4bit_koalpaca_v1_1a_on_polyglot_ko_12_8b.ipynb) 추가: QLoRA로 Polyglot-ko 12.8B 모델 KoAlpaca v1.1a 학습 with 4bit 
         - Colab 무료 - T4에서는 50sample에 약 4분, 1epoch에 약 15시간(최대 사용시간 초과)
