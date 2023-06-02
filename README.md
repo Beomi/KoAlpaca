@@ -182,11 +182,6 @@ FINETUNED_CKPT_URL=beomi/KoAlpaca-13B-LoRA  # 30B모델은 KoAlpaca-30B-LoRA 65B
 python app.py --base_url $BASE_URL --ft_ckpt_url $FINETUNED_CKPT_URL --port 6006
 ```
 
-### Jupyter Notebook 샘플
-
-[Inference Test.ipynb](Inference%20Test.ipynb) 파일을 참고해주세요.
-
-
 ## 데이터셋 v1.1 제작 방법
 
 v1.1 데이터셋은 기존 Alpaca모델이 대답을 짧게 하는 경향, 그리고 맥락을 이해하지 못하는 경향을 개선하기 위해 제작되었습니다.
