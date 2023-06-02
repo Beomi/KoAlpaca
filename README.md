@@ -10,8 +10,8 @@
         - Colab 무료 - T4에서는 50sample에 약 4분, 1epoch에 약 15시간(최대 사용시간 초과)
         - Colab Pro - A100에서는 50sample에 약 44초, 1epochs에 약 2-3시간
         <a style='display:inline' target="_blank" href="https://colab.research.google.com/gist/Beomi/a3032e4eaa33b86fdf8de1f47f15a647/2023_05_26_bnb_4bit_koalpaca_v1_1a_on_polyglot_ko_12_8b.ipynb">
-  <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
-</a>
+          <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+        </a>
 
 - 2023.05.03
     - [🤗Polyglot-ko 5.8B 기반 KoAlpaca-Polyglot-5.8B-v1.1b fp16 모델](https://huggingface.co/beomi/KoAlpaca-Polyglot-5.8B) 및 [🤗8bit 모델](https://huggingface.co/beomi/KoAlpaca-Polyglot-5.8B/tree/8bit) 공개
