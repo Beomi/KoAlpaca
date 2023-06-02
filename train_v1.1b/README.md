@@ -1,4 +1,4 @@
-# Train KoAlpaca Polyglot-12.8b v1.1b using DeepSpeed
+# Train KoAlpaca v1.1a 샘플코드
 
 ## 설치
 
