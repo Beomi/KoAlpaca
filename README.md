@@ -6,6 +6,8 @@
 ## Update Logs
 
 - 2023.06.02
+    - [🐧KoRWKV-6B🤗](https://huggingface.co/beomi/KoRWKV-6B) 28B tokens ckpt 기반 [🐧KoAlpaca-KoRWKV-6B🤗](https://huggingface.co/beomi/KoAlpaca-KoRWKV-6B) v1.1a버전 학습 및 모델 공개
+        > [🐧KoAlpaca-KoRWKV-6B 허깅페이스 레포🤗](https://huggingface.co/beomi/KoAlpaca-KoRWKV-6B)에 몇가지 생성 결과 샘플이 있습니다.
     - [RTX 3090/4090/A5000으로 Polyglot-ko 5.8b full finetune](https://github.com/Beomi/KoAlpaca/blob/main/train_v1.1b/README.md#polyglot-ko-58b-%EB%AA%A8%EB%8D%B8-%ED%95%99%EC%8A%B5-w-3x-rtx-3090-gpu-%ED%98%B9%EC%9D%80-rtx-4090-a5000) 가이드 추가
 
 - 2023.05.30
