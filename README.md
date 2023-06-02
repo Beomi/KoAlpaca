@@ -121,7 +121,7 @@ Meta의 LLAMA 모델은 한국어 데이터셋을 충분히 학습하지 않아�
 - 최신버전 torch / HF 라이브러리 설치
 
 ```bash
-pip install -U torch transformers tokenizers accelerate
+pip install -U torch transformers tokenizers accelerate safetensors
 ```
 
 아래 예제 코드로 실행해볼 수 있습니다.
