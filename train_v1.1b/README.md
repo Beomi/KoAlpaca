@@ -3,13 +3,45 @@
 ## 설치
 
 ```bash
-pip install -r requirements.txt
+pip install -U -r requirements.txt
 ```
 
 ## 데이터 설정
 
 - 데이터는 `KoAlpaca_v1.1a_textonly.json` 파일을 사용합니다.
 - 해당 데이터는 Root 디렉토리의 `KoAlpaca_v1.1.jsonl`을, `### 질문: ...\n\n### 답변: ...<|endoftext|>`꼴로 변환한 `text` 컬럼만 있는 json 파일입니다.
+
+## polyglot-ko-5.8B 모델 학습 w/ 3x RTX 3090 GPU (혹은 RTX 4090, A5000)
+
+```bash
+chmod +x train_rtx3090_3x.sh
+./train_rtx3090_3x.sh
+```
+
+위 코드로 학습시 아래와 같이 각 GPU별로 24GB의 Vram을 사용합니다.
+
+```
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.105.17   Driver Version: 525.105.17   CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  On   | 00000000:01:00.0 Off |                  Off |
+| 30%   43C    P2   173W / 450W |  23783MiB / 24564MiB |     15%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  On   | 00000000:81:00.0 Off |                  Off |
+| 30%   46C    P2   163W / 450W |  24211MiB / 24564MiB |     28%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  On   | 00000000:82:00.0 Off |                  Off |
+| 30%   44C    P2   160W / 450W |  24163MiB / 24564MiB |     43%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+```
+
 
 ## polyglot-ko-5.8b 모델 학습 w/ 단일 GPU (A100 80G x1)
 
