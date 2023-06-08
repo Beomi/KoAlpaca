@@ -5,6 +5,14 @@
 
 ## Update Logs
 
+- 2023.06.08
+    - [Colab: QLoRA로 학습한 adapter weight 로드해서 Inference하기](https://github.com/Beomi/KoAlpaca/blob/main/2023_06_08_PEFT%EB%A1%9CLoRA%EB%A1%9C%EB%93%9C.ipynb) 추가
+        - Colab Free(T4 GPU)에서 로드 가능합니다.
+        - 예제로 [🤗beomi/qlora-koalpaca-polyglot-12.8b-50step](https://huggingface.co/beomi/qlora-koalpaca-polyglot-12.8b-50step) 레포(50step 학습한 예제)를 사용합니다.
+        <a style='display:inline' target="_blank" href="https://colab.research.google.com/github/Beomi/KoAlpaca/blob/main/2023_06_08_PEFT%EB%A1%9CLoRA%EB%A1%9C%EB%93%9C.ipynb">
+          <img src="https://colab.research.google.com/assets/colab-badge.svg" alt="Open In Colab"/>
+        </a>
+        
 - 2023.06.02
     - [🐧KoRWKV-6B🤗](https://huggingface.co/beomi/KoRWKV-6B) 28B tokens ckpt 기반 [🐧KoAlpaca-KoRWKV-6B🤗](https://huggingface.co/beomi/KoAlpaca-KoRWKV-6B) v1.1a버전 학습 및 모델 공개
         > [🐧KoAlpaca-KoRWKV-6B 허깅페이스 레포🤗](https://huggingface.co/beomi/KoAlpaca-KoRWKV-6B)에 몇가지 생성 결과 샘플이 있습니다.
