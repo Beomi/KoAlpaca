@@ -5,6 +5,8 @@
 
 ## Update Logs
 
+- 2023.06.12
+    - Kakao/Telegram 봇 안내 삭제
 - 2023.06.08
     - [Colab: QLoRA로 학습한 adapter weight 로드해서 Inference하기](https://github.com/Beomi/KoAlpaca/blob/main/2023_06_08_PEFT%EB%A1%9CLoRA%EB%A1%9C%EB%93%9C.ipynb) 추가
         - Colab Free(T4 GPU)에서 로드 가능합니다.
@@ -62,7 +64,8 @@ Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 �
 - 설치 없이 Web으로 곧바로 만날 수 있습니다.
 - 이전 대화의 맥락을 기억해 답변을 생성합니다.
 - 최대 512 토큰의 응답을 생성하며, 이전 맥락은 (신규 생성 답변을 포함해) 최대 1024 토큰을 기억합니다.
-- 데모에서는 RTX 3090 24G GPU 1대로 서빙중이며, 8Bit quantized된 모델로 서비스중입니다.
+- 데모에서는 A5000 24G GPU 2대로 Tensor Parallel을 통해 서빙중이며, fp16 모델로 서비스중입니다.
+- 해당 데모는 [모두연 KoAlpaca Lab](https://modulabs.co.kr/product/lab-11500-2023-05-10-074332/) GPU 지원으로 운영중입니다. 감사합니다 😍
 
 링크: [https://chat.koalpaca.com](https://chat.koalpaca.com/)
 
