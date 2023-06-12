@@ -34,6 +34,7 @@
     - Logo 업데이트 🎉
 - 2023.04.26
     - [chat.koalpaca.com](https://chat.koalpaca.com) 에 [Hugging Face ChatUI](https://huggingface.co/spaces/huggingchat/chat-ui/tree/main) 적용
+      - 해당 ChatKoAlpaca GPU서버는 **모두의연구소 K-디지털 플랫폼의 지원을 받아 진행하고 있습니다.** 
 - 2023.04.20
     - [KoAlpaca v1.1 데이터셋](KoAlpaca_v1.1.jsonl) 공개
     - [🤗Polyglot-ko 12.8B 기반 KoAlpaca-Polyglot-12.8B-v1.1b fp16 모델](https://huggingface.co/beomi/KoAlpaca-Polyglot-12.8B) 및 [🤗8bit 모델](https://huggingface.co/beomi/KoAlpaca-Polyglot-12.8B/tree/8bit) 공개
@@ -59,13 +60,14 @@ Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 �
 
 ### [ChatKoAlpaca: 채팅형 KoAlpaca (Polyglot-ko-12.8b-v1.1b)](https://chat.koalpaca.com/)
 
+- 해당 데모는 [모두연 KoAlpaca Lab](https://modulabs.co.kr/product/lab-11500-2023-05-10-074332/)에서 모두의연구소 K-디지털 플랫폼의 지원 받아 진행하고 있습니다. 감사합니다 😍 
+
 ![ChatKoAlpaca Web page with chat input](assets/chat_koalpac_screenshot.jpeg)
 
 - 설치 없이 Web으로 곧바로 만날 수 있습니다.
 - 이전 대화의 맥락을 기억해 답변을 생성합니다.
 - 최대 512 토큰의 응답을 생성하며, 이전 맥락은 (신규 생성 답변을 포함해) 최대 1024 토큰을 기억합니다.
 - 데모에서는 A5000 24G GPU 2대로 Tensor Parallel을 통해 서빙중이며, fp16 모델로 서비스중입니다.
-- 해당 데모는 [모두연 KoAlpaca Lab](https://modulabs.co.kr/product/lab-11500-2023-05-10-074332/) GPU 지원으로 운영중입니다. 감사합니다 😍
 
 링크: [https://chat.koalpaca.com](https://chat.koalpaca.com/)
 
