@@ -15,3 +15,4 @@ transformers==4.30.2
 typed-argument-parser<1.8
 wandb
 urllib3<2
+pytest
