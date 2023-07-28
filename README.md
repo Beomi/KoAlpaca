@@ -5,6 +5,8 @@
 
 ## Update Logs
 
+- 2023.07.28
+  - [RTX3090(4090/A5000) 4대 사용한 TensorParallel 기반 학습 예제 코드](https://github.com/Beomi/KoAlpaca/tree/main/train_v1.1b#tensor-parallel-polyglot-ko-58b-%EB%AA%A8%EB%8D%B8-%ED%95%99%EC%8A%B5-w-4x-rtx-3090-gpu) 추가
 - 2023.06.12
     - Kakao/Telegram 봇 안내 삭제
 - 2023.06.08
