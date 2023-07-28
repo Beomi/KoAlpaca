@@ -11,7 +11,43 @@ pip install -U -r requirements.txt
 - 데이터는 `KoAlpaca_v1.1a_textonly.json` 파일을 사용합니다.
 - 해당 데이터는 Root 디렉토리의 `KoAlpaca_v1.1.jsonl`을, `### 질문: ...\n\n### 답변: ...<|endoftext|>`꼴로 변환한 `text` 컬럼만 있는 json 파일입니다.
 
-## polyglot-ko-5.8B 모델 학습 w/ 3x RTX 3090 GPU (혹은 RTX 4090, A5000)
+## Tensor Parallel: polyglot-ko-5.8B 모델 학습 w/ 4x RTX 3090 GPU
+
+```bash
+chmod +x train_mp4_rtx3090.sh
+./train_mp4_rtx3090.sh
+```
+
+위 코드로 학습시 아래와 같이 GPU별 약 20GB의 Vram을 사용합니다.
+
+```
++-----------------------------------------------------------------------------+
+| NVIDIA-SMI 525.116.04   Driver Version: 525.116.04   CUDA Version: 12.0     |
+|-------------------------------+----------------------+----------------------+
+| GPU  Name        Persistence-M| Bus-Id        Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp  Perf  Pwr:Usage/Cap|         Memory-Usage | GPU-Util  Compute M. |
+|                               |                      |               MIG M. |
+|===============================+======================+======================|
+|   0  NVIDIA GeForce ...  On   | 00000000:19:00.0 Off |                  N/A |
+|100%   87C    P2   167W / 280W |  20786MiB / 24576MiB |    100%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   1  NVIDIA GeForce ...  On   | 00000000:1A:00.0 Off |                  N/A |
+|100%   93C    P2   146W / 280W |  20802MiB / 24576MiB |    100%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   2  NVIDIA GeForce ...  On   | 00000000:67:00.0 Off |                  N/A |
+|100%   92C    P2   163W / 280W |  20802MiB / 24576MiB |    100%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+|   3  NVIDIA GeForce ...  On   | 00000000:68:00.0 Off |                  N/A |
+|100%   96C    P2   171W / 280W |  20802MiB / 24576MiB |    100%      Default |
+|                               |                      |                  N/A |
++-------------------------------+----------------------+----------------------+
+```
+
+
+## Pipeline Parallel: polyglot-ko-5.8B 모델 학습 w/ 3x RTX 3090 GPU (혹은 RTX 4090, A5000)
 
 ```bash
 chmod +x train_rtx3090_3x.sh
