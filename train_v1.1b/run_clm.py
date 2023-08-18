@@ -418,7 +418,7 @@ def main():
             use_auth_token=True if model_args.use_auth_token else None,
             torch_dtype=torch_dtype,
             low_cpu_mem_usage=model_args.low_cpu_mem_usage,
-            device_map="auto" if model_args.low_cpu_mem_usage else None,
+            device_map="auto",
         )
     else:
         model = AutoModelForCausalLM.from_config(config)
