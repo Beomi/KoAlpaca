@@ -60,9 +60,10 @@ Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 �
 
 ## 바로 써보기: 채팅형 웹 페이지(v1.1b-chat) 혹은 카카오톡 봇, Telegram Bot으로 만나보세요!
 
-### [ChatKoAlpaca: 채팅형 KoAlpaca (Polyglot-ko-12.8b-v1.1b)](https://chat.koalpaca.com/)
+### ChatKoAlpaca: 채팅형 KoAlpaca (Polyglot-ko-12.8b-v1.1b)
 
-- 해당 데모는 [모두연 KoAlpaca Lab](https://modulabs.co.kr/product/lab-11500-2023-05-10-074332/)에서 모두의연구소 K-디지털 플랫폼의 지원 받아 진행하고 있습니다. 감사합니다 😍 
+- 해당 데모는 [모두연 KoAlpaca Lab](https://modulabs.co.kr/product/lab-11500-2023-05-10-074332/)에서 모두의연구소 K-디지털 플랫폼의 지원 받아 진행되었습니다. 감사합니다 😍
+- 2024년 5월 기준 서버 지원 종료로 서비스를 종료합니다.
 
 ![ChatKoAlpaca Web page with chat input](assets/chat_koalpac_screenshot.jpeg)
 
@@ -70,8 +71,6 @@ Stanford Alpaca 모델을 학습한 방식과 동일한 방식으로 학습을 �
 - 이전 대화의 맥락을 기억해 답변을 생성합니다.
 - 최대 512 토큰의 응답을 생성하며, 이전 맥락은 (신규 생성 답변을 포함해) 최대 1024 토큰을 기억합니다.
 - 데모에서는 A5000 24G GPU 2대로 Tensor Parallel을 통해 서빙중이며, fp16 모델로 서비스중입니다.
-
-링크: [https://chat.koalpaca.com](https://chat.koalpaca.com/)
 
 <!-- 위 서빙에 사용한 Gradio 코드는 [webui 폴더](https://github.com/Beomi/KoAlpaca/tree/main/webui)를 참고해주세요. -->
 
