@@ -5,6 +5,8 @@
 
 ## Update Logs
 
+- 2024.05
+  - GPU 서버 지원 종료로 웹앱 데모를 종료합니다.
 - 2023.07.28
   - [RTX3090(4090/A5000) 4대 사용한 TensorParallel 기반 학습 예제 코드](https://github.com/Beomi/KoAlpaca/tree/main/train_v1.1b#tensor-parallel-polyglot-ko-58b-%EB%AA%A8%EB%8D%B8-%ED%95%99%EC%8A%B5-w-4x-rtx-3090-gpu) 추가
 - 2023.06.12
@@ -35,8 +37,8 @@
 - 2023.04.28
     - Logo 업데이트 🎉
 - 2023.04.26
-    - [chat.koalpaca.com](https://chat.koalpaca.com) 에 [Hugging Face ChatUI](https://huggingface.co/spaces/huggingchat/chat-ui/tree/main) 적용
-      - 해당 ChatKoAlpaca GPU서버는 **모두의연구소 K-디지털 플랫폼의 지원을 받아 진행하고 있습니다.** 
+    - 웹UI에 [Hugging Face ChatUI](https://huggingface.co/spaces/huggingchat/chat-ui/tree/main) 적용
+      - 해당 ChatKoAlpaca GPU서버는 **모두의연구소 K-디지털 플랫폼의 지원을 받아 서비스되었습니다.(2024.05 종료)** 
 - 2023.04.20
     - [KoAlpaca v1.1 데이터셋](KoAlpaca_v1.1.jsonl) 공개
     - [🤗Polyglot-ko 12.8B 기반 KoAlpaca-Polyglot-12.8B-v1.1b fp16 모델](https://huggingface.co/beomi/KoAlpaca-Polyglot-12.8B) 및 [🤗8bit 모델](https://huggingface.co/beomi/KoAlpaca-Polyglot-12.8B/tree/8bit) 공개
